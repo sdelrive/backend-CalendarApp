@@ -10,6 +10,7 @@ const createUser = async (req, res = express.response) => {
   // const user = new User(req.body);
 
   // await user.save();
+
   console.log("epale");
 
   //   manejo de errores: lo lleve para el middlewre.

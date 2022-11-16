@@ -8,7 +8,7 @@ require("dotenv").config();
 const app = express();
 
 // base de datos
-// dbConnection();
+dbConnection();
 
 // Directorio publico
 app.use(express.static("public"));
