@@ -8,7 +8,7 @@ const router = express.Router();
 
 const { check } = require("express-validator");
 const { validateFields } = require("../middlewares/validate-fields");
-const { validateJWS } = require("../middlewares/validate-fields");
+const { validateJWS } = require("../middlewares/validate-jws");
 // controllers
 const {
   createUser,

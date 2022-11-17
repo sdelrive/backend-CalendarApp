@@ -25,9 +25,9 @@ const createUser = async (req, res = express.response) => {
     user.password = bcrypt.hashSync(password, salt);
 
     await user.save();
+
     // generar token
     const token = await generateJWT(user.id, user.name);
-    // console.log(token);
 
     //   manejo de errores: lo lleve para el middlewre.
 
@@ -85,10 +85,17 @@ const loginUser = async (req, res) => {
   }
 };
 
-const renewToken = (req, res) => {
+const renewToken = async (req, res) => {
+  const uid = req.uid;
+  const name = req.name;
+
+  //generar nuevo JWT y retornarlo en la peticion
+  const token = await generateJWT(uid, name);
+
+  console.log(uid);
   res.json({
     ok: true,
-    msg: "renew token",
+    token,
   });
 };
 
